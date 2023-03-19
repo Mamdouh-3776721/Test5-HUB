@@ -3,15 +3,17 @@ name: Dart Test
 on: [push]
 
 jobs:
-  test:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Dart SDK
-      uses: dart-lang/setup-dart@v1
+      uses: dartsdk/setup-dart@v2
       with:
-        dart-version: '2.14.4'
-    - name: Install dependencies
-      run: dart pub get
+        sdk: stable
+    - name: Get dependencies
+      run: pub get
     - name: Run tests
-      run: dart test
+      run: pub run test
