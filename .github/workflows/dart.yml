@@ -1,0 +1,16 @@
+name: Dart CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Dart
+      uses: dart-lang/setup-dart@v1
+
+    - name: Test with Dart
+      run: dart test.dart
